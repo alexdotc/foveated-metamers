@@ -6,7 +6,7 @@ channels:
   - bioconda
   - pytorch
 dependencies:
-  - python==3.7
+  - python<=3.7
   - pip
   - ipykernel
   - scipy>=1.6
