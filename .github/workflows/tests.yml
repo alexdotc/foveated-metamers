@@ -22,7 +22,7 @@ jobs:
       - name: Create environment
         run: |
           conda install mamba -n base -c conda-forge
-          sudo chmod -R 777 /usr/share/miniconda/pkgs/cache
+          conda clean --all
           mamba env create -f environment.yml
           source activate metamers
           pip install pytest
@@ -48,7 +48,7 @@ jobs:
       - name: Create environment
         run: |
           conda install mamba -n base -c conda-forge
-          sudo chmod -R 777 /usr/share/miniconda/pkgs
+          conda clean --all
           mamba env create -f environment.yml
           source activate metamers
       - name: Setup FFmpeg
@@ -84,7 +84,7 @@ jobs:
       - name: Create environment
         run: |
           conda install mamba -n base -c conda-forge
-          sudo chmod -R 777 /usr/share/miniconda/pkgs
+          conda clean --all
           mamba env create -f environment.yml
           source activate metamers
           mamba install jupyter nbconvert
