@@ -22,7 +22,8 @@ jobs:
       - name: Create environment
         run: |
           conda install mamba -n base -c conda-forge
-          sudo env "PATH=$PATH" mamba env create -f environment.yml
+          sudo chmod 777 /usr/share/miniconda/pkgs/cache
+          mamba env create -f environment.yml
           source activate metamers
           pip install pytest
       - name: Run tests with pytest
@@ -47,7 +48,8 @@ jobs:
       - name: Create environment
         run: |
           conda install mamba -n base -c conda-forge
-          sudo env "PATH=$PATH" mamba env create -f environment.yml
+          sudo chmod 777 /usr/share/miniconda/pkgs/cache
+          mamba env create -f environment.yml
           source activate metamers
       - name: Setup FFmpeg
         uses: FedericoCarboni/setup-ffmpeg@v1
@@ -82,9 +84,10 @@ jobs:
       - name: Create environment
         run: |
           conda install mamba -n base -c conda-forge
-          sudo env "PATH=$PATH" mamba env create -f environment.yml
+          sudo chmod 777 /usr/share/miniconda/pkgs/cache
+          mamba env create -f environment.yml
           source activate metamers
-          sudo env "PATH=$PATH" mamba install jupyter nbconvert
+          mamba install jupyter nbconvert
       - name: modify config.yml
         run: |
           sed -i 's|DATA_DIR:.*|DATA_DIR: "data/metamers"|g' config.yml
