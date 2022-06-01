@@ -22,7 +22,7 @@ jobs:
       - name: Create environment
         run: |
           conda install mamba -n base -c conda-forge
-          mamba env create -f environment.yml
+          sudo mamba env create -f environment.yml
           source activate metamers
           pip install pytest
       - name: Run tests with pytest
