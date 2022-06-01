@@ -84,7 +84,7 @@ jobs:
           conda install mamba -n base -c conda-forge
           sudo env "PATH=$PATH" mamba env create -f environment.yml
           source activate metamers
-          mamba install jupyter nbconvert
+          sudo env "PATH=$PATH" mamba install jupyter nbconvert
       - name: modify config.yml
         run: |
           sed -i 's|DATA_DIR:.*|DATA_DIR: "data/metamers"|g' config.yml
